@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('/v1/cardapios', 'App\Http\Controllers\CardapioController');
 Route::apiResource('/v1/mesas', 'App\Http\Controllers\MesaController');
+Route::apiResource('/v1/clientes', 'App\Http\Controllers\ClienteController');
