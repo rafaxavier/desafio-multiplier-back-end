@@ -30,15 +30,3 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function () {
     Route::apiResource('clientes', 'App\Http\Controllers\ClienteController')->middleware('can:admin');
     Route::apiResource('pedidos', 'App\Http\Controllers\PedidoController');
 });
-
-// ou assim
-// Route::apiResource('/v1/cardapios', 'App\Http\Controllers\CardapioController');
-// Route::apiResource('/v1/mesas', 'App\Http\Controllers\MesaController');
-// Route::apiResource('/v1/clientes', 'App\Http\Controllers\ClienteController');
-// Route::apiResource('/v1/pedidos', 'App\Http\Controllers\PedidoController');
-
-
-
-
-
-
