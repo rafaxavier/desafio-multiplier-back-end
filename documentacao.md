@@ -12,27 +12,30 @@ Preparando o Ambiente:
 - **5°** E por fim para rodar a aplicação execute "php artisan serve", o servidor está servido em http://localhost:8000 .
 
 Será criado tbm 4 usuários:
- 
+ ```json
 name: deleon
 email: deleon@
 password: 1234
 cargo: garcom 
-
+```
+ ```json
 name: luiz
 email: luiz@
 password: 1234
 cargo: garcom 
-
+```
+ ```json
 name: pedro
 email: pedro@
 password: 1234
 cargo: cozinheiro 
-
+```
+ ```json
 name: admin
 email: admin@
 password: 1234
 cargo: admin 
-
+```
 Obs: Todas as rotas necessita de autenticação.
 
 ## EndPoints
