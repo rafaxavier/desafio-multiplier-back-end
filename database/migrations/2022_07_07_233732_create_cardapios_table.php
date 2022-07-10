@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCardapiosTable extends Migration
@@ -12,7 +13,8 @@ class CreateCardapiosTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        Schema::dropIfExists('cardapios'); 
         Schema::create('cardapios', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
