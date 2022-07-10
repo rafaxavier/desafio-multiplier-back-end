@@ -19,7 +19,18 @@ class ClienteController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'nome' => 'required',
+            'cpf' => 'required|integer|unique:clientes',
+        ], [
+            //exibindo mensagens de erros de validação customizadas
+            'nome.required' => 'Insira o nome do cliente',
+            'cpf.required' => 'Insira o cpf do cliente',
+            'cpf.integer' => 'Insira somente números',
+            'cpf.unique'=>'Este cpf de mesa já existe, tente outro cpf',
+        ]);
+
         $cliente = $this->cliente->create($request->all());
         return response()->json($cliente, 201);
     }
