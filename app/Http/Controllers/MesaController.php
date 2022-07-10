@@ -20,6 +20,16 @@ class MesaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            // 'user_id' => 'required',
+            'numero' => 'required|integer|unique:mesas',
+        ], [
+            //exibindo mensagens de erros de validação customizadas
+            'numero.required' => 'Insira o numero da mesa',
+            'numero.integer' => 'Insira somente números',
+            'numero.unique'=>'Este numero de mesa já existe, tente outro numero',
+        ]);
+
         $mesa = $this->mesa->create($request->all());
         return response()->json($mesa, 201);
     }
@@ -47,7 +57,7 @@ class MesaController extends Controller
         return response()->json(['msg' => 'not found'], 404);
     }
 
-    
+
     public function destroy($id)
     {
         $result = $this->mesa->find($id);
