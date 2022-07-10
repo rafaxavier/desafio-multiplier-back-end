@@ -19,6 +19,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::apiResource('/v1/cardapios', 'App\Http\Controllers\CardapioController');
-Route::apiResource('/v1/mesas', 'App\Http\Controllers\MesaController');
-Route::apiResource('/v1/clientes', 'App\Http\Controllers\ClienteController');
+Route::post('login', 'App\Http\Controllers\AuthController@login');
+
+Route::prefix('v1')->middleware('jwt.auth')->group(function () {
+    Route::post('me', 'App\Http\Controllers\AuthController@me');
+    Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
+    Route::post('logout', 'App\Http\Controllers\AuthController@logout');
+    Route::apiResource('cardapios', 'App\Http\Controllers\CardapioController')->middleware('can:admin');
+    Route::apiResource('mesas', 'App\Http\Controllers\MesaController')->middleware('can:admin');
+    Route::apiResource('clientes', 'App\Http\Controllers\ClienteController')->middleware('can:admin');
+    Route::apiResource('pedidos', 'App\Http\Controllers\PedidoController');
+});
+
+// ou assim
+// Route::apiResource('/v1/cardapios', 'App\Http\Controllers\CardapioController');
+// Route::apiResource('/v1/mesas', 'App\Http\Controllers\MesaController');
+// Route::apiResource('/v1/clientes', 'App\Http\Controllers\ClienteController');
+// Route::apiResource('/v1/pedidos', 'App\Http\Controllers\PedidoController');
+
+
+
+
+
+
