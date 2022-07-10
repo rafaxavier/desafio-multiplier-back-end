@@ -20,7 +20,16 @@ class CardapioController extends Controller
 
 
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+        ], [
+            //exibindo mensagens de erros de validação customizadas
+            'nome.required' => 'Insira o nome do cardapio',
+            'descricao.required' => 'Insira o descricao do cardapio',
+        ]);
+
         $cardapio = $this->cardapio->create($request->all());
         return response()->json($cardapio, 201);
     }
