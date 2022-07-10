@@ -5,11 +5,11 @@
 Obs: Todas as rotas necessita de autenticação.
 
 Preparando o Ambiente:
-1° Deve criar um banco de dados mysql com o nome "desafio", username: root e password:''  (sem senha).
-2° Execute na raiz do projeto o comando "composer install", para instalar as dependências.
-3° Execute o comando "php artisan migrate", para fazer as migrações para o BD.  
-4° Execute "php artisan db:seed", para popular o banco com 10K clientes, 50 cardapios e 400K pedidos.
-5° E por fim para rodar a aplicação execute "php artisan serve", o servidor está servido em http://localhost:8000 .
+- **1°** Deve criar um banco de dados mysql com o nome "desafio", username: root e password:''  (sem senha).
+- **2°** Execute na raiz do projeto o comando "composer install", para instalar as dependências.
+- **3°** Execute o comando "php artisan migrate", para fazer as migrações para o BD.  
+- **4°** Execute "php artisan db:seed", para popular o banco com 10K clientes, 50 cardapios e 400K pedidos.
+- **5°** E por fim para rodar a aplicação execute "php artisan serve", o servidor está servido em http://localhost:8000 .
 
 Será criado tbm 4 usuários:
  
